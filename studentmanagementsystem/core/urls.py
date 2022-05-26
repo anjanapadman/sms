@@ -1,0 +1,43 @@
+from django.urls import path
+
+from core import views
+
+urlpatterns = [
+    path('',views.home,name='index'),
+    path('loginview',views.loginview,name='loginview'),
+    path('adminview',views.adminview,name='adminview'),
+    path('teacherregister',views.teacherregister,name='teacherregister'),
+    path('teacherview',views.teacherview,name='teacherview'),
+    path('teacherupdate/<int:id>',views.teacherupdate,name='teacherupdate'),
+    path('teacherdelete/<int:id>',views.teacherdelete,name='teacherdelete'),
+    path('logoutview',views.logoutview,name='logoutview'),
+    path('teacherhome',views.teacherhome,name='teacherhome'),
+    path('studentregister',views.studentregister,name='studentregister'),
+    path('studentview',views.studentview,name='studentview'),
+    path('studentupdate/<int:id>',views.studentupdate,name='studentupdate'),
+    path('studentdelete/<int:id>',views.studentdelete,name='studentdelete'),
+    path('studenthome',views.studenthome,name='studenthome'),
+    path('viewprofile',views.viewprofile,name='viewprofile'),
+    path('studteacherview',views.studteacherview,name='studteacherview'),
+    path('Attendance_stud',views.Attendance_stud,name='Attendance_stud'),
+    path('mark/<int:id>',views.mark,name='mark'),
+    path('viewattendance',views.viewattendance,name='viewattendance'),
+    path('dayattendance/<date>',views.dayattendance,name='dayattendance'),
+    path('addtimetable',views.addtimetable,name='addtimetable'),
+    path('viewtimetable',views.viewtimetable,name='viewtimetable'),
+    path('timetabledelete/<int:id>',views.timetabledelete,name='timetabledelete'),
+    path('std_viewtimetable',views.std_viewtimetable,name='std_viewtimetable'),
+    path('notification',views.notification,name='notification'),
+    path('viewnotification',views.viewnotification,name='viewnotification'),
+    path('notificationdelete/<int:id>',views.notificationdelete,name='notificationtdelete'),
+    path('std_viewnotification',views.std_viewnotification,name='std_viewnotification'),
+    path('tchr_timetableview',views.tchr_timetableview,name='tchr_timetableview'),
+    path('feedback',views.feedback,name='feedback'),
+    path('feedbackview',views.feedbackview,name='feedbackview'),
+    path('ad_feedbackview',views.ad_feedbackview,name='ad_feedbackview'),
+    path('replyfeed/<int:id>',views.replyfeed,name='replyfeed'),
+    path('tr_replyview',views.tr_replyview,name='tr_replyview'),
+    path('stud_viewattendance',views.stud_viewattendance,name='stud_viewattendance'),
+    path('stud_dayattendance/<date>',views.stud_dayattendance,name='stud_dayattendance'),
+
+]

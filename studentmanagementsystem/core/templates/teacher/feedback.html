@@ -1,0 +1,29 @@
+<html lang="en">
+{% extends 'teacher/teacherhome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-9">
+ <div class="card mb-9">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+      Feedback
+    </div>
+    <div class="card-body">
+  <form method="post">
+      {% csrf_token %}
+      {{feed|crispy}}
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+    </div>
+ </div>
+</div>
+</body>
+</html>
+{% endblock %}

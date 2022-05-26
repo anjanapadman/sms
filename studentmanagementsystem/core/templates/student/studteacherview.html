@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'student/studenthome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-9">
+ <div class="card mb-9">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Teachers
+    </div>
+    <div class="card-body">
+ <table class="table">
+  <thead>
+    <tr>
+       <th scope="col">SI No.</th>
+       <th scope="col">Name</th>
+       <th scope="col">Subject</th>
+       <th scope="col">Email</th>
+       <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in Tr %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.subject}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.contact_no}}</td>
+
+
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
+{% endblock %}

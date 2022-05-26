@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'teacher/teacherhome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-9">
+ <div class="card mb-9">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Add attendance
+    </div>
+
+ <table class="table">
+  <thead>
+    <tr>
+       <th scope="col">SI No.</th>
+       <th scope="col">Name</th>
+
+       <th scope="col">Attendance</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in student %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+        <td>
+
+            <a href="{% url 'mark' i.id %}"><button type="button" class="btn btn-primary">Mark</button></a>
+
+        </td>
+
+
+
+
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+<!--<form method="post">-->
+<!--     {% for i in  name %}-->
+
+<!--        <p style="margin-left:15%;"><b>Name:</b>&nbsp;&nbsp;&nbsp;{{i.name}}</p><br><br>-->
+<!--        <p style="margin-left:15%;"><b>Date:</b>&nbsp;&nbsp;&nbsp;{{i.date}}</p><br><br>-->
+<!--    <p style="margin-left:15%;"><b>Attendance:</b>&nbsp;&nbsp;&nbsp;{{i.attendance}}</p><br>-->
+<!--    <a style="margin-left:15%;" href="{% url 'mark' i.id %}"><button type="button" class="btn btn-primary">Mark</button></a>-->
+
+<!--  {% endfor %}-->
+
+
+ </div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

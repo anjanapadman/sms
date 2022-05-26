@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'teacher/teacherhome.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-9">
+ <div class="card mb-9">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+       View students
+    </div>
+    <div class="card-body">
+ <table class="table">
+  <thead>
+    <tr>
+       <th scope="col">SI No.</th>
+       <th scope="col">Name</th>
+       <th scope="col">Age</th>
+       <th scope="col">Grade</th>
+       <th scope="col">Email</th>
+       <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in stud %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.grade}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.contact_no}}</td>
+        <td><a href="{% url 'studentupdate' i.id %}"><button type="button" class="btn btn-primary">Update</button></a></td>
+                <td>
+                    <form action="{% url 'studentdelete' i.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="student" value="{{i.id}}"/>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                </td>
+
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+    </div>
+ </div>
+</div>
+</body>
+</html>
+{% endblock %}

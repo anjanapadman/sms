@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'teacher/teacherhome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-xl-9">
+ <div class="card mb-9">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Feedback
+    </div>
+    <div class="card-body">
+
+ <table class="table">
+  <thead>
+    <tr>
+       <th scope="col">SI No.</th>
+
+       <th scope="col">Subject</th>
+       <th scope="col">Description</th>
+       <th scope="col">Date</th>
+       <th scope="col">Reply</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in feed %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+
+      <td>{{i.subject}}</td>
+      <td>{{i.description}}</td>
+      <td>{{i.date}}</td>
+        <td>
+        {% if i.reply == None %}
+            <a href="{% url 'replyfeed' i.id %}"><button type="button" class="btn btn-primary">Reply</button></a>
+
+
+        {% else %}
+            {{i.reply}}
+        {% endif %}
+        </td>
+
+
+
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+    </div>
+ </div>
+</div>
+
+
+</body>
+</html>
+{% endblock %}
